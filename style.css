@@ -1,0 +1,84 @@
+/* Mengatur tampilan umum */
+body {
+    background-color: #f8f9fa; /* Warna latar belakang */
+}
+
+.container {
+    background-color: #5c1111; /* Warna latar belakang kontainer */
+    padding: 20px; /* Ruang dalam kontainer */
+    border-radius: 10px; /* Sudut bulat untuk kontainer */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bayangan kontainer */
+}
+
+/* Mengatur foto profil menjadi bulat */
+.img-fluid.rounded-circle {
+    border-radius: 50%; /* Membuat foto profil bulat */
+}
+
+/* Mengatur tampilan teks dalam kolom-kolom */
+.col-md-9 {
+    padding: 20px; 
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+h1{
+    font-family: serif;
+    font-weight: bold;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 24px; 
+    font-family:'Times New Roman', Times, serif;
+}
+
+h4 {
+    color: #ffffff; 
+    font-size: 20px; 
+    font-family:'Times New Roman', Times, serif;
+}
+
+p {
+    color: #000000;
+    font-size: 16px; 
+    margin-bottom: 8px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #007bff; 
+    color: #ffffff; 
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
+    margin-bottom: auto;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+
+img {
+    border-radius: 4%;
+}
+

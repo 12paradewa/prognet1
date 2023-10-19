@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Registrasi Mahasiswa</title>
+    <!-- Tambahkan referensi ke Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cobak.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Form Biodata Mahasiswa</h1>
+        <form method="post" action="data.php">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap:</label>
+                        <input type="text" class="form-control" name="nama" id="nama">
+                        <div id="nama-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nim">NIM:</label>
+                        <input type="text" class="form-control" name="nim" id="nim" >
+                        <div id="nim-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                        <div id="email-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki">
+                            <label class="form-check-label">Laki-laki</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan">
+                            <label class="form-check-label">Perempuan</label>
+                        </div>
+                        <div id="jenis_kelamin-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat">Alamat:</label>
+                        <textarea class="form-control" name="alamat" id="alamat" rows="4" ></textarea>
+                        <div id="alamat-error" class="text-danger"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fakultas">Fakultas * :</label>
+                        <select id="fakultas" name="fakultas" required>
+                            <option value="Pilih fakultas">Pilih Fakultas</option>
+                            <option value="Fakultas Teknik">Fakultas Teknik</option>
+                            <option value="Fakultas Ilmu Budaya">Fakultas Ilmu Budaya</option>
+                            <option value="Fakultas Kedokteran">Fakultas Kedokteran</option>
+                            <option value="Fakultas Pertanian">Fakultas Pertanian</option>
+                            <option value="Fakultas Peternakan">Fakultas Peternakan</option>
+                            <option value="Fakultas Pariwisata">Fakultas Pariwisata</option>
+                            <option value="Fakultas Hukum">Fakultas Hukum</option>
+                        </select>
+                        <div id="fakultas-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="angkatan">Angkatan:</label>
+                        <input type="number" class="form-control" name="angkatan" id="angkatan">
+                        <div id="angkatan-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semester">Semester:</label>
+                        <input type="text" class="form-control" name="semester" id="semester" >
+                        <div id="semester-error" class="text-danger"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hobi">Hobby:</label><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="hobi[]" value="Olahraga">
+                            <label class="form-check-label">Olahraga</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="hobi[]" value="Musik">
+                            <label class="form-check-label">Musik</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="hobi[]" value="Lainnya">
+                            <label class="form-check-label">Lainnya</label>
+                        </div>
+                        <input type="text" class="form-control" name="hobi_lainnya" placeholder="Hobi Lainnya">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary" name="Simpan" value="Simpan">
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+    
+    // Fungsi validasi saat formulir dikirim
+    function validateForm() {
+        // Mengambil nilai dari input fields
+        var nama = document.getElementById('nama').value;
+        var nim = document.getElementById('nim').value;
+        var email = document.getElementById('email').value;
+        var jenis_kelamin = document.querySelector('input[name="jenis_kelamin"]:checked');
+        var alamat = document.getElementById('alamat').value;
+        var fakultas = document.getElementById('fakultas').value;
+        var angkatan = document.getElementById('angkatan').value;
+        var semester = document.getElementById('semester').value;
+
+        // Validasi Nama
+        if (nama === "") {
+            document.getElementById('nama-error').textContent = "Nama harus diisi";
+            return false;
+        } else {
+            document.getElementById('nama-error').textContent = "";
+        }
+
+        // Validasi NIM
+        if (nim === "" || isNaN(nim)) {
+            document.getElementById('nim-error').textContent = "NIM harus diisi dengan angka";
+            return false;
+        } else {
+            document.getElementById('nim-error').textContent = "";
+        }
+
+        // Validasi Email
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!email.match(emailPattern)) {
+            document.getElementById('email-error').textContent = "Format email tidak valid";
+            return false;
+        } else {
+            document.getElementById('email-error').textContent = "";
+        }
+
+        // Validasi Jenis Kelamin
+        if (jenis_kelamin === null) {
+            document.getElementById('jenis_kelamin-error').textContent = "Pilih jenis kelamin";
+            return false;
+        } else {
+            document.getElementById('jenis_kelamin-error').textContent = "";
+        }
+
+        // Validasi Alamat
+        if (alamat === "") {
+            document.getElementById('alamat-error').textContent = "Alamat harus diisi";
+            return false;
+        } else {
+            document.getElementById('alamat-error').textContent = "";
+        }
+
+        // Validasi Fakultas
+        if (fakultas === "Pilih fakultas") {
+            document.getElementById('fakultas-error').textContent = "Pilih fakultas";
+            return false;
+        } else {
+            document.getElementById('fakultas-error').textContent = "";
+        }
+
+        // Validasi Angkatan
+        if (angkatan === "" || isNaN(angkatan)) {
+            document.getElementById('angkatan-error').textContent = "Angkatan harus diisi dengan angka";
+            return false;
+        } else {
+            document.getElementById('angkatan-error').textContent = "";
+        }
+
+        // Validasi Semester
+        if (semester === "" || isNaN(semester)) {
+            document.getElementById('semester-error').textContent = "Semester harus diisi dengan angka";
+            return false;
+        } else {
+            document.getElementById('semester-error').textContent = "";
+        }
+
+        return true;
+    }
+
+    // Menambahkan event listener ke formulir untuk memanggil fungsi validasi saat formulir dikirim
+    document.querySelector('form').addEventListener('submit', function (e) {
+        if (!validateForm()) {
+            e.preventDefault(); // Mencegah pengiriman formulir jika validasi gagal
+        }
+    });
+
+
+</script>
+</html>

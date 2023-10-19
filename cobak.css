@@ -1,0 +1,24 @@
+.container {
+    margin-top: 40px;
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 10px; 
+  }
+
+  body{
+    background-color: #5c1111; 
+    height: auto;
+  }
+
+  .form-group{
+    font-family: serif;
+    font-weight: bold;
+  }
+
+  h1{
+    font-family: serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
